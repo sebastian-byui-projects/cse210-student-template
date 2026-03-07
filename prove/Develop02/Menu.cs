@@ -43,6 +43,7 @@ public class Menu(Journal journal, IJournalServices journalServices)
                     break;
                 case "4":
                     journalServices.ReadJournalFromFile(journal);
+                    journal.DisplayJournal();
                     break;
                 case "5":
                     Console.WriteLine("Exit");

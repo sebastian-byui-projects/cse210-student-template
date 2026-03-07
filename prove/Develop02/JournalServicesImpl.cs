@@ -13,14 +13,14 @@ public class JournalServicesImpl : IJournalServices
         }
     }
 
-    public Journal ReadJournalFromFile(Journal journal)
+    public void ReadJournalFromFile(Journal journal)
     {
         var entries = journal.GetEntries();
 
         if (!File.Exists(FilePath))
         {
             Console.WriteLine("No journal file found.");
-            return new Journal();
+            return;
         }
 
         entries.Clear();
@@ -36,7 +36,5 @@ public class JournalServicesImpl : IJournalServices
             var entry = new Entry(date, prompt, response);
             entries.Add(entry);
         }
-
-        return journal;
     }
 }
