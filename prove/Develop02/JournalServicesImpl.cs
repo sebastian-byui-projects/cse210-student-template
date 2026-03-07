@@ -9,7 +9,7 @@ public class JournalServicesImpl : IJournalServices
         using var writer = new StreamWriter(FilePath);
         foreach (var entry in journal.GetEntries())
         {
-            writer.WriteLine($"{entry.GetDate()}|{entry.GetPrompt()}|{entry.GetResponse()}");
+            writer.WriteLine($"{entry.GetDate()}|{entry.GetPrompt()}|{entry.GetResponse()}|{entry.IsPrivate()}");
         }
     }
 

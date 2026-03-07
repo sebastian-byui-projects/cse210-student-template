@@ -10,7 +10,8 @@ public class Menu(Journal journal, IJournalServices journalServices)
         "2 - Display Journal",
         "3 - Save Journal to file",
         "4 - Read Journal from file",
-        "5 - Exit"
+        "5 - Display private entries",
+        "6 - Exit"
     ];
 
     private readonly List<string> _prompts =
@@ -33,7 +34,11 @@ public class Menu(Journal journal, IJournalServices journalServices)
             {
                 case "1":
                     var prompt = _prompts[new Random().Next(_prompts.Count)];
-                    journal.CreateJournalEntry(prompt);
+                    Console.WriteLine(prompt);
+                    var response = Console.ReadLine() ?? "";
+                    Console.WriteLine("Is this entry private? (y/n)");
+                    var isPrivate = Console.ReadLine()?.ToLower() == "y";
+                    journal.CreateJournalEntry(prompt, response, isPrivate);
                     break;
                 case "2":
                     journal.DisplayJournal();
@@ -46,6 +51,9 @@ public class Menu(Journal journal, IJournalServices journalServices)
                     journal.DisplayJournal();
                     break;
                 case "5":
+                    journal.DisplayPrivateEntries();
+                    break;
+                case "6":
                     Console.WriteLine("Exit");
                     return;
                 default:

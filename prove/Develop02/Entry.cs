@@ -1,6 +1,6 @@
 namespace Develop02;
 
-public class Entry(DateTime date, string prompt, string response)
+public class Entry(DateTime date, string prompt, string response, bool isPrivate = true)
 {
     public DateTime GetDate()
     {
@@ -15,5 +15,10 @@ public class Entry(DateTime date, string prompt, string response)
     public string GetResponse()
     {
         return response;
+    }
+    
+    public bool IsPrivate()
+    {
+        return isPrivate;
     }
 }
