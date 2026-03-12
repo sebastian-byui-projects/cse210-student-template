@@ -1,4 +1,4 @@
-using Develop03;
+namespace Develop03;
 
 class Program
 {
