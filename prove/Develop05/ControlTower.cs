@@ -84,24 +84,20 @@ public class ControlTower
             }
         }
     }
-
-    // Dentro de ControlTower.cs
+    
 
     public void GenerateRandomFlight()
     {
         Random rnd = new Random();
-
-        // 30% de probabilidad de que aparezca un avión este turno
+        
         if (rnd.Next(1, 11) > 7)
         {
             string[] airlines = { "Delta", "United", "FedEx", "DHL", "Iberia", "NASA" };
             string[] pilotNames = { "EagleEye", "Maverick", "Iceman", "SkyWalker" };
-
-            // Crear datos aleatorios
+            
             string flightId = $"{airlines[rnd.Next(airlines.Length)]}-{rnd.Next(100, 999)}";
             Pilot randomPilot = new Pilot(pilotNames[rnd.Next(pilotNames.Length)], 0.8 + (rnd.NextDouble() * 0.5));
-
-            // Elegir el tipo de avión al azar (Polimorfismo en acción)
+            
             int type = rnd.Next(1, 4); // 1, 2 o 3
             Aircraft newPlane;
 
@@ -111,8 +107,7 @@ public class ControlTower
                 newPlane = new CargoFlight(flightId, randomPilot);
             else
                 newPlane = new EmergencyFlight(flightId, randomPilot);
-
-            // Añadirlo a la lista de espera
+            
             AddIncomingFlight(newPlane);
 
             Console.WriteLine(
