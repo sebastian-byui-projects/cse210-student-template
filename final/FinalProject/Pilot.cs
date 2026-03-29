@@ -1,4 +1,4 @@
-namespace Develop05;
+namespace FinalProject;
 
 public class Pilot(string name, double skill)
 {

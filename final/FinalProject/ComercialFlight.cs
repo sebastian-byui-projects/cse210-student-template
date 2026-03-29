@@ -1,4 +1,4 @@
-namespace Develop05;
+namespace FinalProject;
 
 public class ComercialFlight(string flightNum, Pilot pilot) : Aircraft(flightNum, pilot, 2000)
 {

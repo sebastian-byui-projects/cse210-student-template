@@ -1,9 +1,9 @@
-namespace Develop05;
+namespace FinalProject;
 
 public abstract class Aircraft(string flightNum, Pilot pilot, int minRunway)
 {
     protected double Fuel = 100.0;
-    private FlightState _currentState  = FlightState.EnRoute;
+    private FlightState _currentState = FlightState.EnRoute;
 
     public virtual void UpdateFuel(double weatherMod)
     {
@@ -16,8 +16,8 @@ public abstract class Aircraft(string flightNum, Pilot pilot, int minRunway)
     public string GetInfo() => $"[{flightNum}] Fuel: {(int)Fuel}% | Status: {_currentState}";
     public int GetRequiredLength() => minRunway;
     public string GetId() => flightNum;
-    
+
     public void SetState(FlightState s) => _currentState = s;
-    
+
     public FlightState GetState() => _currentState;
 }
