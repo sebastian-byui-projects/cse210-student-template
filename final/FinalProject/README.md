@@ -66,5 +66,3 @@ The system is organized into 10 distinct classes to ensure a modular and scalabl
 If an aircraft reaches **0% Fuel**, its state changes to `Crashed`, and it is removed from the radar. Keep a close eye on the **Thunderstorm** modifier, as it can drain fuel more than twice as fast!
 
 ---
-
-**Developed for CSE 210: Programming with Classes.**
